@@ -253,23 +253,6 @@
             </div>
         </section>
 
-        <section class="mb-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold">Resumen Ejecutivo Generado por IA ✨</h2>
-                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Obtén una síntesis estratégica y concisa de los beneficios clave de esta actualización, impulsada por Gemini.</p>
-            </div>
-            <div class="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto text-center">
-                <button id="generate-summary-btn" class="bg-google-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors">
-                    Generar Resumen Ejecutivo ✨
-                </button>
-                <div id="summary-loading" class="mt-4 text-google-green hidden">Generando resumen...</div>
-                <div id="summary-response" class="mt-4 p-4 bg-gray-100 border border-gray-200 rounded-lg text-gray-800 hidden text-left">
-                    <h4 class="font-bold mb-2">Resumen Ejecutivo:</h4>
-                    <ul id="summary-response-list" class="list-disc pl-5"></ul>
-                </div>
-            </div>
-        </section>
-
         <section>
              <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold">El Resultado: Una Transformación Integral</h2>
@@ -440,67 +423,6 @@
                         }
                     }
                 }
-            }
-        });
-
-        // Gemini API Integration - Executive Summary Generator Section
-        document.getElementById('generate-summary-btn').addEventListener('click', async () => {
-            const summaryLoadingIndicator = document.getElementById('summary-loading');
-            const summaryResponseContainer = document.getElementById('summary-response');
-            const summaryResponseList = document.getElementById('summary-response-list'); 
-
-            summaryLoadingIndicator.classList.remove('hidden');
-            summaryResponseContainer.classList.add('hidden');
-            summaryResponseList.innerHTML = ''; 
-
-            try {
-                let chatHistory = [];
-                const summaryPrompt = `Genera un resumen ejecutivo conciso en formato de lista de puntos clave (bullet points) sobre el impacto estratégico y los beneficios clave de actualizar a Google Workspace Enterprise Plus y Frontline Standard para Dimarsa Chile. Por favor, asegúrate de que cada punto sea claro y directo, sin usar asteriscos ni otros caracteres de formato excesivos dentro del contenido del punto. Enfócate en la reducción de riesgos (DLP, Vault, Endpoint Management), el aumento de la productividad (Meet, AppSheet), y el impulso de la inteligencia artificial (Gemini) como ventajas competitivas. Dirige el resumen a un nivel C-Level.`;
-
-                chatHistory.push({ role: "user", parts: [{ text: summaryPrompt }] });
-                const payload = { contents: chatHistory };
-                const apiKey = "";
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=${apiKey}`;
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const rawText = result.candidates[0].content.parts[0].text;
-                    const items = rawText.split('\n')
-                        .filter(line => line.trim().startsWith('*') || line.trim().startsWith('-'))
-                        .map(line => line.trim().substring(1).trim().replace(/\*/g, '')); 
-                    
-                    if (items.length > 0) {
-                        items.forEach(item => {
-                            const listItem = document.createElement('li');
-                            listItem.textContent = item;
-                            summaryResponseList.appendChild(listItem);
-                        });
-                    } else {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = rawText.replace(/\*/g, ''); 
-                        summaryResponseList.appendChild(listItem);
-                    }
-                } else {
-                    summaryResponseList.textContent = 'No se pudo generar el resumen. Intenta de nuevo más tarde.';
-                }
-                summaryResponseContainer.classList.remove('hidden');
-
-            } catch (error) {
-                console.error('Error al llamar a la API de Gemini para el resumen:', error);
-                const listItem = document.createElement('li');
-                listItem.textContent = 'Hubo un error al generar el resumen. Por favor, inténtalo de nuevo.';
-                summaryResponseList.appendChild(listItem);
-                summaryResponseContainer.classList.remove('hidden');
-            } finally {
-                summaryLoadingIndicator.classList.add('hidden');
             }
         });
 

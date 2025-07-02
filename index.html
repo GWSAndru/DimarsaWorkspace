@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Impulsando el Éxito con Google Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #4285F4, #34A853);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .google-workspace-logo-text {
+            background: linear-gradient(to right, #4285F4, #EA4335, #FBBC05, #34A853); /* Google colors */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 2.5rem; /* Adjust size as needed */
+            line-height: 1;
+            display: inline-block;
+        }
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --accent-purple: #812BE5;
+            --accent-pink: #E52B7A;
+            --light-gray: #e2e8f0;
+        }
+        .bg-google-blue { background-color: var(--google-blue); }
+        .text-google-blue { color: var(--google-blue); }
+        .border-google-blue { border-color: var(--google-blue); }
+
+        .bg-google-green { background-color: var(--google-green); }
+        .text-google-green { color: var(--google-green); }
+        .border-google-green { border-color: var(--google-green); }
+
+        .bg-google-red { background-color: var(--google-red); }
+        .text-google-red { color: var(--google-red); }
+        .border-google-red { border-color: var(--google-red); }
+
+        .bg-google-yellow { background-color: var(--google-yellow); }
+        .text-google-yellow { color: var(--google-yellow); }
+        .border-google-yellow { border-color: var(--google-yellow); }
+
+        .bg-accent-purple-light { background-color: #ede7f6; }
+        .border-accent-purple { border-color: var(--accent-purple); }
+        .text-accent-purple { color: var(--accent-purple); }
+
+        .bg-accent-pink-light { background-color: #fce4ec; }
+        .border-accent-pink { border-color: var(--accent-pink); }
+        .text-accent-pink { color: var(--accent-pink); }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <main class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">
+                <span class="gradient-text">Impulsando el Futuro del Negocio en Dimarsa Chile</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600">
+                Una actualización estratégica de <span class="google-workspace-logo-text">Google Workspace</span> para catalizar la rentabilidad, la seguridad y la ventaja competitiva.
+            </p>
+        </section>
+
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Pilar 1: Reducción de Riesgos e Impacto Financiero</h2>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Protegiendo activos críticos mientras se optimizan los costos operativos y se asegura el cumplimiento normativo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-bold text-xl mb-4 text-center">Evolución de la Seguridad y Gobernanza</h3>
+                    <p class="text-gray-600 mb-6 text-center">La transición a Enterprise Plus y Frontline Standard introduce controles de seguridad proactivos, esenciales para la protección de datos y el cumplimiento.</p>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b">
+                                <th class="py-2">Funcionalidad Clave</th>
+                                <th class="py-2 text-center">Standard/Starter</th>
+                                <th class="py-2 text-center text-white bg-google-blue rounded-t-md">Plus/Standard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="py-3">Prevención de Pérdida de Datos (DLP)</td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-yellow">○</td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-green">✓</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3">Control de Regiones de Datos</td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-red">✕</td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-green">✓</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3">Gestión de Claves de Cifrado (CMEK)</td>
+                               <td class="py-3 text-center text-2xl font-bold text-google-red">✕</td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-green">✓</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3"><strong>Google Vault (Retención de Datos)</strong></td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-red">✕</td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-green">✓</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3"><strong>Gestión de Puntos Finales (Endpoint)</strong></td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-yellow">○</td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-green">✓</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3">Análisis y Auditoría Avanzada</td>
+                               <td class="py-3 text-center text-2xl font-bold text-google-yellow">○</td>
+                                <td class="py-3 text-center text-2xl font-bold text-google-green">✓</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-4 text-xs text-gray-500">✓ Incluido | ○ Básico | ✕ No Incluido</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                     <h3 class="font-bold text-xl mb-4 text-center">Optimización de Costos con Automatización</h3>
+                     <p class="text-gray-600 mb-6 text-center">AppSheet permite la automatización de procesos sin código, reduciendo costos operativos y acelerando la innovación.</p>
+                    <div class="chart-container">
+                        <canvas id="costReductionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Pilar 2: Acelerando la Productividad y el Crecimiento</h2>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Capacidades de colaboración escalables y acceso a la información que impulsan la agilidad y la toma de decisiones.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-bold text-xl mb-4 text-center">Expansión de la Capacidad de Colaboración (Google Meet)</h3>
+                    <p class="text-gray-600 mb-6 text-center">El aumento de participantes y la capacidad de grabación son cruciales para una comunicación inclusiva y efectiva, especialmente para la primera línea.</p>
+                    <div class="chart-container h-80">
+                        <canvas id="meetCapacityChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-center items-center text-center">
+                    <h3 class="font-bold text-xl mb-4">Almacenamiento Consistente para la Primera Línea</h3>
+                    <p class="text-gray-600 mb-6">El almacenamiento se mantiene consistente en todas las ediciones de Frontline, asegurando que los equipos tengan <strong>5 GB</strong> para sus recursos críticos.</p>
+                    <div class="flex items-center justify-center bg-accent-pink-light border-2 border-accent-pink text-accent-pink rounded-full w-40 h-40 md:w-48 md:h-48 flex items-center justify-center mx-auto text-5xl md:text-6xl font-bold">
+                        5 GB
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">por usuario</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Pilar 3: Desatando el Potencial Humano</h2>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Fomentando una cultura de innovación y empoderamiento desde la base hasta la cima de la organización.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-8">
+                 <h3 class="font-bold text-xl mb-8 text-center">El Flujo de la Innovación Distribuida</h3>
+                 <div class="flex flex-col md:flex-row justify-around items-center space-y-8 md:space-y-0 md:space-x-4">
+                     
+                     <div class="text-center flex-1">
+                        <div class="bg-google-blue border-2 border-google-blue text-white rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-3 text-4xl">🛠️</div>
+                        <h4 class="font-bold">1. Herramientas Potentes</h4>
+                        <p class="text-sm text-gray-600">Acceso a AppSheet y funciones avanzadas.</p>
+                     </div>
+
+                     <div class="text-5xl text-gray-300 font-light transform rotate-90 md:rotate-0">→</div>
+                     
+                     <div class="text-center flex-1">
+                        <div class="bg-accent-purple-light border-2 border-accent-purple text-accent-purple rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-3 text-4xl">💡</div>
+                        <h4 class="font-bold">2. Innovación del Empleado</h4>
+                        <p class="text-sm text-gray-600">Equipos crean soluciones y automatizan tareas.</p>
+                     </div>
+
+                     <div class="text-5xl text-gray-300 font-light transform rotate-90 md:rotate-0">→</div>
+
+                     <div class="text-center flex-1">
+                        <div class="bg-google-green border-2 border-google-green text-white rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-3 text-4xl">📈</div>
+                        <h4 class="font-bold">3. Impacto en el Negocio</h4>
+                        <p class="text-sm text-gray-600">Mayor agilidad, eficiencia y resolución de problemas.</p>
+                     </div>
+
+                 </div>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Pilar 4: Impulso Estratégico con Inteligencia Artificial</h2>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">La integración de Gemini transforma la productividad y desata nuevas capacidades para la toma de decisiones inteligentes.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <div class="bg-google-blue border-2 border-google-blue text-white rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4 text-4xl">🤖</div>
+                    <h3 class="font-bold text-xl mb-3">Gemini para Google Workspace: IA de Vanguardia</h3>
+                    <p class="text-gray-600 mb-4">
+                        <strong>Enterprise Plus y Frontline Standard incluyen Gemini</strong>, la IA generativa de Google, que asiste a nivel organizacional.
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        Esta integración potencia la productividad en Gmail, Docs, Sheets, Slides y Meet, permitiendo a los usuarios generar contenido, analizar datos y comunicarse de manera más inteligente.
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-bold text-xl mb-4 text-center">Impacto Estratégico de la IA en el Negocio</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Aceleración de la Innovación:</strong> La IA libera a los equipos de tareas repetitivas, permitiendo enfocarse en iniciativas estratégicas y creatividad.</li>
+                        <li><strong>Decisiones Basadas en Datos:</strong> Gemini asiste en el análisis rápido de grandes volúmenes de información, proporcionando insights más profundos y ágiles.</li>
+                        <li><strong>Optimización de Procesos:</strong> Desde la redacción de comunicaciones hasta la organización de datos complejos, la IA automatiza y optimiza flujos de trabajo clave.</li>
+                        <li><strong>Ventaja Competitiva:</strong> La adopción de IA de vanguardia posiciona a la empresa a la delantera en eficiencia y capacidades digitales.</li>
+                        <li><strong>Mejora de la Experiencia del Cliente:</strong> Respuestas más rápidas y personalizadas, y análisis predictivos pueden transformar la interacción con el cliente.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Resumen Ejecutivo Generado por IA ✨</h2>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Obtén una síntesis estratégica y concisa de los beneficios clave de esta actualización, impulsada por Gemini.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto text-center">
+                <button id="generate-summary-btn" class="bg-google-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors">
+                    Generar Resumen Ejecutivo ✨
+                </button>
+                <div id="summary-loading" class="mt-4 text-google-green hidden">Generando resumen...</div>
+                <div id="summary-response" class="mt-4 p-4 bg-gray-100 border border-gray-200 rounded-lg text-gray-800 hidden text-left">
+                    <h4 class="font-bold mb-2">Resumen Ejecutivo:</h4>
+                    <ul id="summary-response-list" class="list-disc pl-5"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+             <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">El Resultado: Una Transformación Integral</h2>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">La actualización fortalece nuestras capacidades clave, posicionándonos para un futuro más resiliente y rentable.</p>
+            </div>
+             <div class="bg-white rounded-lg shadow-md p-6 md:col-span-2">
+                 <div class="chart-container h-96">
+                    <canvas id="overallImpactChart"></canvas>
+                 </div>
+             </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-gray-800 text-white mt-20 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold mb-4">Recomendación Estratégica para Dimarsa Chile</h3>
+            <p class="mb-6 text-gray-300">Autorizar la transición a Enterprise Plus y Frontline Standard para capitalizar estos beneficios estratégicos y asegurar nuestra posición de liderazgo en el mercado.</p>
+            <button id="authorize-transition-btn" class="bg-google-green hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                Autorizar Transición
+            </button>
+            <div class="mt-8 text-gray-400 text-sm">
+                <p class="font-bold">Contacto para Dimarsa Chile:</p>
+                <p><strong>Andrés Aguirre</strong></p>
+                <p>LATAM Renewal Manager</p>
+                <p>Email: <a href="mailto:andresaguirre@google.com" class="text-google-blue hover:underline">andresaguirre@google.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function wrapLabel(str, maxWidth = 16) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const tooltipTitleCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+        
+        const googleBlue = '#4285F4';
+        const googleRed = '#EA4335';
+        const googleYellow = '#FBBC05';
+        const googleGreen = '#34A853';
+        const accentPurple = '#812BE5';
+        const accentPink = '#E52B7A';
+        const lightGray = '#e2e8f0';
+
+        const costCtx = document.getElementById('costReductionChart').getContext('2d');
+        new Chart(costCtx, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2 (Post-AppSheet)', 'Q3', 'Q4', 'Q1 (Año 2)'],
+                datasets: [{
+                    label: 'Costos Operativos Manuales',
+                    data: [100, 85, 70, 60, 50],
+                    backgroundColor: 'rgba(66, 133, 244, 0.2)',
+                    borderColor: googleBlue,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                ...tooltipTitleCallback,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Índice de Costos' }
+                    }
+                }
+            }
+        });
+
+        const meetCtx = document.getElementById('meetCapacityChart').getContext('2d');
+        new Chart(meetCtx, {
+            type: 'bar',
+            data: {
+                labels: [wrapLabel('Frontline Starter'), wrapLabel('Frontline Standard'), wrapLabel('Enterprise Standard'), wrapLabel('Enterprise Plus')],
+                datasets: [{
+                    label: 'Capacidad Máxima de Participantes',
+                    data: [100, 250, 250, 500],
+                    backgroundColor: [lightGray, googleGreen, googleYellow, googleBlue],
+                    borderColor: [lightGray, googleGreen, googleYellow, googleBlue],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...tooltipTitleCallback,
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    ...tooltipTitleCallback.plugins,
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Nº de Participantes' }
+                    }
+                }
+            }
+        });
+        
+        const impactCtx = document.getElementById('overallImpactChart').getContext('2d');
+        new Chart(impactCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Seguridad y Cumplimiento', 'Eficiencia Operativa', 'Colaboración Global', 'Empoderamiento Empleados', 'Agilidad de Negocio'],
+                datasets: [{
+                    label: 'Estado Actual (Standard)',
+                    data: [6, 5, 7, 5, 6],
+                    backgroundColor: 'rgba(107, 114, 128, 0.2)',
+                    borderColor: 'rgb(107, 114, 128)',
+                    pointBackgroundColor: 'rgb(107, 114, 128)',
+                }, {
+                    label: 'Estado Futuro (Plus)',
+                    data: [9.5, 9, 9.5, 9.5, 9.5],
+                    backgroundColor: 'rgba(66, 133, 244, 0.2)',
+                    borderColor: googleBlue,
+                    pointBackgroundColor: googleBlue,
+                }]
+            },
+            options: {
+                ...tooltipTitleCallback,
+                responsive: true,
+                maintainAspectRatio: false,
+                 scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10,
+                        ticks: {
+                           stepSize: 2
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gemini API Integration - Executive Summary Generator Section
+        document.getElementById('generate-summary-btn').addEventListener('click', async () => {
+            const summaryLoadingIndicator = document.getElementById('summary-loading');
+            const summaryResponseContainer = document.getElementById('summary-response');
+            const summaryResponseList = document.getElementById('summary-response-list'); 
+
+            summaryLoadingIndicator.classList.remove('hidden');
+            summaryResponseContainer.classList.add('hidden');
+            summaryResponseList.innerHTML = ''; 
+
+            try {
+                let chatHistory = [];
+                const summaryPrompt = `Genera un resumen ejecutivo conciso en formato de lista de puntos clave (bullet points) sobre el impacto estratégico y los beneficios clave de actualizar a Google Workspace Enterprise Plus y Frontline Standard para Dimarsa Chile. Por favor, asegúrate de que cada punto sea claro y directo, sin usar asteriscos ni otros caracteres de formato excesivos dentro del contenido del punto. Enfócate en la reducción de riesgos (DLP, Vault, Endpoint Management), el aumento de la productividad (Meet, AppSheet), y el impulso de la inteligencia artificial (Gemini) como ventajas competitivas. Dirige el resumen a un nivel C-Level.`;
+
+                chatHistory.push({ role: "user", parts: [{ text: summaryPrompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const rawText = result.candidates[0].content.parts[0].text;
+                    const items = rawText.split('\n')
+                        .filter(line => line.trim().startsWith('*') || line.trim().startsWith('-'))
+                        .map(line => line.trim().substring(1).trim().replace(/\*/g, '')); 
+                    
+                    if (items.length > 0) {
+                        items.forEach(item => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = item;
+                            summaryResponseList.appendChild(listItem);
+                        });
+                    } else {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = rawText.replace(/\*/g, ''); 
+                        summaryResponseList.appendChild(listItem);
+                    }
+                } else {
+                    summaryResponseList.textContent = 'No se pudo generar el resumen. Intenta de nuevo más tarde.';
+                }
+                summaryResponseContainer.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error al llamar a la API de Gemini para el resumen:', error);
+                const listItem = document.createElement('li');
+                listItem.textContent = 'Hubo un error al generar el resumen. Por favor, inténtalo de nuevo.';
+                summaryResponseList.appendChild(listItem);
+                summaryResponseContainer.classList.remove('hidden');
+            } finally {
+                summaryLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        // Email functionality for "Autorizar Transición" button
+        document.getElementById('authorize-transition-btn').addEventListener('click', () => {
+            const recipient = 'andresaguirre@google.com';
+            const subject = encodeURIComponent('Avancemos con Dimarsa y Google en la innovación del futuro');
+            const body = encodeURIComponent('Estimado Andrés,\n\nEstamos encantados de poder crecer en el uso y adopción de la Inteligencia Artificial con el apoyo de Google. Creemos que esta actualización de Google Workspace será fundamental para nuestra innovación y eficiencia.\n\nSaludos cordiales,');
+            
+            const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+            window.open(mailtoLink, '_blank');
+        });
+
+    </script>
+
+</body>
+</html>
